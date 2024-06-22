@@ -19,12 +19,13 @@ Follow these simple steps to install the JWT Decoder Chrome Extension:
    ```bash
    git clone https://github.com/suntossh/JWTDecoderChromeExtn.git
 
-Open Chrome and navigate to chrome://extensions/.
-Enable "Developer mode" in the top right.
-Click on "Load unpacked" and select the directory where you cloned the repository.
-How to Use
-After installation, locate the extension icon in the top-right corner of your Chrome browser.
-Click on the extension icon to open the JWT Decoder.
-Paste the JWT token into the provided input field.
-Click anywhere else to trigger onchange event to view the decoded information.
-Explore the decoded JWT details, including header, payload, and signature.
+2. Open Chrome and navigate to chrome://extensions/.
+3. Enable "Developer mode" in the top right.
+4. Click on "Load unpacked" and select the directory where you cloned the repository.
+
+## How to Use
+1. After installation, locate the extension icon in the top-right corner of your Chrome browser.
+2. Click on the extension icon to open the JWT Decoder.
+3. Paste the JWT token into the provided input field.
+4. Click anywhere else to trigger onchange event to view the decoded information.
+5. Explore the decoded JWT details, including header, payload, and signature.
