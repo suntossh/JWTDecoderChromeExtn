@@ -1,55 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Local JWT Decoder</title>
-    <style>
-        .parent {
-          margin: 1rem;
-          padding: 1rem 1rem;
-          text-align: left;
-        }
-        .child {
-          display: inline-block;
-          padding: 1rem 1rem;
-          vertical-align: top;
-        }
-      </style>
+  <title>JSON Parser</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 10px;
+      padding: 10px;
+      width: 300px;
+    }
 
+    textarea {
+      width: 100%;
+      height: 150px;
+    }
+
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border: 1px solid #ccc;
+      white-space: pre-wrap;
+    }
+  </style>
 </head>
 
 <body>
-    <h1>Local JWT Decoder</h1>
-    <p>
-      A very simple JavaScript that takes a JWT, splits it into the three components, decodes them, and displays the decoded components in textareas. Note that this does not perform signature verification at this time.
-    </p>
-    <div class='parent'>
-      <div class='child'><h5>JWT</h5>
-        <textarea id="jwt" style="width:400px;height:100px">
-          eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJiMThkNjVjMC0xNzgwLTExZWQtYTdjOC02ZmVkMjgzNGUxM2EiLCJzdWIiOiIyOTAxNTA3MjQ2NDU0NjQyIiwiYXVkIjoiYWxsIiwiaWRzIjp7InVzZXJzSWQiOlt7ImlkIjoiMjkwMTUwNzI0NjQ1NDY0MiIsInJvbGUiOiJvd25lciJ9XSwid29ya3NwYWNlc0lkIjpbeyJpZCI6ImQ1YjYzOTcwLTE3ODItMTFlZC1hN2M4LTZmZWQyODM0ZTEzYSIsInJvbGUiOiJvd25lciJ9XX0sInJvbGVzIjpbImV2ZXJ5b25lIl0sImp0aSI6IjVhNjZlNmZjLWEyMjEtNGRlNS1iZjM5LTFkMTY3NzY5NzE4ZCIsImlhdCI6MTY3MDEwNDg3NywiZXhwIjoxNjcwMTkxMjc3fQ.eNN7vEzmc0_7qbaPWGs7Xydq3Em3Vnr1lYfKSbYLwFM
-        </textarea>
-      </div>
-      <div class='child'><h5>Decoded Token</h5>
-        <p>Header:</p>
-        <textarea id="header" style="width:400px"></textarea>
-        <p>Body</p>
-        <textarea id="body" style="width:400px"></textarea>
-        <p>Signature</p>
-        <textarea id="sig" style="width:400px"></textarea>
-      </div>
-    </div>
-    <hr />
-    <div id="explainations">
-      <p><B>Header:</B> Tells you what kind of encoding was used and what kind of token we're looking at (which in real life will always be JWT)</p>
-      <p><B>Body:</B> This is the main data with claims, scopes and other details that are consumed by the security plane</p>
-      <p><B>Signature:</B> The Signature string can be verified using the </p>
-    </div>
+  <h1>JSON Parser & P12 Extractor</h1>
+  <h2>JSON Parser</h2>
+  <textarea id="jsonInput"
+    placeholder="Paste JSON here..."></textarea>
+  <button id="parseButton">Parse JSON</button>
+  <pre id="output"></pre>
 
+  <h2>P12 Extractor</h2>
+  <input type="file"
+    id="p12FileInput"
+    accept=".p12" />
+  <input type="password"
+    id="p12PasswordInput"
+    placeholder="Password" />
+  <button id="extractButton">Extract Private Key</button>
+  <pre id="p12Output"></pre>
+  <button id="signButton">Sign Request</button>
+  <pre id="signatureOutput"></pre>
 
+  <script src="forge.min.js"></script>
+  <script src="popup.js"></script>
 </body>
-<script src="jwtdecoder.js"></script>
 
 </html>
