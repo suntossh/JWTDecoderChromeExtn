@@ -92,7 +92,7 @@ async function extractPrivateKey(p12ArrayBuffer, password) {
     const keyBag = bags[forge.pki.oids.pkcs8ShroudedKeyBag][0];
     const privateKey = keyBag.key;
 
-    return formatPrivateKey(privateKey);
+    return privateKey;
   } catch (error) {
     throw new Error('Failed to extract private key: ' + error.message);
   }
